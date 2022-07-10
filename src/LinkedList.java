@@ -2,6 +2,7 @@ public class LinkedList {
 
     //First node of the list
     private Node first = null;
+    private Node last = null;
     private int totalElements = 0;
 
     //As the name implies, it adds at the start of the list
@@ -9,10 +10,28 @@ public class LinkedList {
         Node newNode = new Node(data, first);
         this.first = newNode;
 
+        //This sets the first element to be inserted as the last one as well
+        if(this.totalElements == 0){
+            this.last = this.first;
+        }
+
         this.totalElements++;
     }
     //Adds at the end of the list
-    public void add (Object data) { }
+    public void add (Object data) {
+        if(this.totalElements == 0){
+            addAtStart(data);
+        } else {
+
+            Node newNode = new Node(data, null);
+            //This makes the last existing node point to the newly created one
+            this.last.setNext(newNode);
+            //Makes the last node be the newest one
+            this.last = newNode;
+
+            this.totalElements++;
+        }
+    }
     //Adds at a specific position
     public void add (int position, Object data) {}
     //Gets the data stored in specific position
@@ -28,7 +47,7 @@ public class LinkedList {
 
     @Override
     public String toString() {
-        if (this.totalElements == 0){
+        if(this.totalElements == 0){
             return "[]";
         }
 
