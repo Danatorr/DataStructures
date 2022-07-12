@@ -6,5 +6,8 @@ public class LinkedListTestClass {
         System.out.println(list);
         list.addAtStart("Torres");
         System.out.println(list);
+
+        list.add(1, "Araujo");
+        System.out.println(list);
     }
 }

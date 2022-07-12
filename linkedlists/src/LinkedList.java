@@ -33,12 +33,56 @@ public class LinkedList {
         }
     }
     //Adds at a specific position
-    public void add (int position, Object data) {}
+    public void add (int position, Object data) {
+        if(position == 0){
+            addAtStart(data);
+        } else if(position == this.totalElements) {
+            add(data);
+        } else {
+            Node previousNode = this.getNode(position - 1);
+            Node newNode = new Node(data, previousNode.getNext());
+            previousNode.setNext(newNode);
+            this.totalElements++;
+        }
+    }
+
+    private boolean positionExists(int position){
+        return position >= 0 && position < this.totalElements;
+    }
+    public Node getNode (int position){
+        if(!positionExists(position)){
+            throw new IllegalArgumentException("This position does not exist!");
+        }
+
+        Node currentNode = first;
+
+        for (int i = 0; i < position; i++){
+            currentNode = currentNode.getNext();
+        }
+
+        return currentNode;
+    }
     //Gets the data stored in specific position
-    public Object get(int position) { return null; }
+    public Object getData(int position) {
+        return this.getNode(position).getData();
+    }
     //Removes an node
-    public void remove (int position) { }
-    public int size() {return 0; }
+    public void removeFromStart () {
+        if (totalElements == 0){
+            throw new IllegalArgumentException("The list is already empty!");
+        }
+
+        //Setting the propriety that points to the first node in the list to be the second node
+        this.first = this.first.getNext();
+        this.totalElements--;
+
+        if(this.totalElements == 0){
+            this.last = null;
+        }
+    }
+    public int size() {
+        return this.totalElements;
+    }
     //Checks if it contains the specified data
     public boolean contains(Object object) { return false; }
 
