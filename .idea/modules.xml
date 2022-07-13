@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Data Structures.iml" filepath="$PROJECT_DIR$/Data Structures.iml" />
+      <module fileurl="file://$PROJECT_DIR$/doublylinkedlists/doublylinkedlists.iml" filepath="$PROJECT_DIR$/doublylinkedlists/doublylinkedlists.iml" />
     </modules>
   </component>
 </project>
