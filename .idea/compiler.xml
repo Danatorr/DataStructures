@@ -4,6 +4,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Data Structures" options="--add-modules java.base" />
       <module name="doublylinkedlists" options="--add-modules java.base" />
+      <module name="stacks" options="--add-modules java.base" />
     </option>
   </component>
 </project>
